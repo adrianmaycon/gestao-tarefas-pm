@@ -11,7 +11,7 @@ function App() {
 
   const handlerLogout = async () => {
     await auth.signout();
-    window.location.href = window.location.href;
+    setTimeout(() => document.location.reload(), 300);;
   }
 
   return (

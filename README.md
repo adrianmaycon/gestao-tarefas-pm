@@ -1,10 +1,12 @@
-# Gerenciamentos de Tarefas - PMCE
+# Gestão de Tarefas - PMCE
 
-A Demo deste projeto pode ser acessada pelo link: https://pmcegereciadordetarefas.netlify.app/.
+A Demo deste projeto pode ser acessada pelo link: https://pmcegestaodetarefas.netlify.app/.
 
 ## Tecnologias Usadas
 
-In the project directory, you can run:
+- ReactJs
+- Typescript
+- Styled-Components
 
 ### `npm start`
 
