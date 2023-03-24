@@ -1,33 +1,20 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Private } from './pages/Private';
+import { Login } from 'pages/Login';
 import { RequireAuth } from './contexts/Auth/RequireAuth';
-import { AuthContext } from './contexts/Auth/AuthContext';
-import { useContext } from 'react';
+import { Header } from 'components/header';
 
 function App() {
-  const auth = useContext(AuthContext);
-
-  const handlerLogout = async () => {
-    await auth.signout();
-    setTimeout(() => document.location.reload(), 300);;
-  }
 
   return (
     <div className="App">
-      <header>
-        <h1>Header do site</h1>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/private">Página Privada</Link>
-          {auth.user && <button type='button' onClick={handlerLogout}>Sair</button>}
-        </nav>
-      </header>
-      <hr />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/private" element={<RequireAuth><Private /></RequireAuth>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<RequireAuth><Private /></RequireAuth>} />
       </Routes>
     </div>
   );

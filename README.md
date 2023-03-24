@@ -1,6 +1,7 @@
 # Gestão de Tarefas - PMCE
 
 A Demo deste projeto pode ser acessada pelo link: https://pmcegestaodetarefas.netlify.app/.
+O Layout deste site web foi feito com referências do site oficial da PMCE - [https://www.pm.ce.gov.br/](www.pm.ce.gov.br).
 
 ## Tecnologias Usadas
 
