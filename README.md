@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# Gerenciamentos de Tarefas - PMCE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Demo deste projeto pode ser acessada pelo link: https://pmcegereciadordetarefas.netlify.app/.
 
-## Available Scripts
+## Tecnologias Usadas
 
 In the project directory, you can run:
 
