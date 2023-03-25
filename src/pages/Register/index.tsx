@@ -1,10 +1,10 @@
 import { AuthContext } from "contexts/Auth/AuthContext";
 import { ChangeEvent, useContext, useState, FormEvent  } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUserLock } from "react-icons/fa";
-import { Container } from './styles';
 
-export const Login = () => {
+import { Container } from './styles';
+import { FaAddressCard } from "react-icons/fa";
+export const Register = () => {
     const auth = useContext(AuthContext);
     const navigate = useNavigate();
     
@@ -27,6 +27,7 @@ export const Login = () => {
 
             if (isLogged) {
                 navigate('/dashboard');
+                setTimeout(() => document.location.reload(), 300);
             } else {
                 alert("Não deu certo.")
             }
@@ -36,15 +37,21 @@ export const Login = () => {
     return (
         <Container>
             <div className="row">
-                <div className="box-icon-login">
-                    <FaUserLock className="icon-login" />
+                <div className="box-icon-register">
+                    <FaAddressCard className="icon-register" />
                 </div>
 
-                <h2>Fazer Login</h2>
+                <h2>Cadastre-se</h2>
             </div>
 
-
             <form className="card-form" onSubmit={handleSubmit}>
+                <label>Nome:</label>
+                <input 
+                    required
+                    type="name" 
+                    placeholder="Digite seu nome" 
+                    />
+
                 <label>E-mail:</label>
                 <input 
                     required
@@ -60,13 +67,13 @@ export const Login = () => {
                     type="password" 
                     value={password} 
                     onChange={handlerPasswordInput}
-                    placeholder="Digite sua senha" 
+                    placeholder="Escolha sua senha" 
                     />
                 
-                <button type="submit">Entrar</button>
+                <button type="submit">Cadastrar</button>
             </form>
 
-            <p>Não tem cadastro? <Link to="/cadastro">Faça seu cadastro!</Link></p>
+            <p>Já tem cadastro? <Link to="/login">Faça seu login!</Link></p>
         </Container>
     );
 }

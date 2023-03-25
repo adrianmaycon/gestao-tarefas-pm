@@ -51,11 +51,6 @@ export const Container = styled.div`
     line-height: 27px;
   }
 
-  .row {
-    display: flex;
-    align-items: center;
-  }
-
   .icon {
     background: #0001fe3b;
     width: 50px;

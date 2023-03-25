@@ -16,7 +16,9 @@ export const Header = () => {
     return (
         <Container>
             <div className='box-container'>
-                <img src={logoPmCe} alt='logo Pm Ce' />
+                <Link to="/">
+                    <img src={logoPmCe} alt='logo Pm Ce' />
+                </Link>
 
                 <nav>
                     {auth.user ? <Link className='btn-link' to="/dashboard"><FaShapes className='icon-login'/>Meu Painel</Link> : <Link className='btn-link' to="/">Página Inicial</Link>}

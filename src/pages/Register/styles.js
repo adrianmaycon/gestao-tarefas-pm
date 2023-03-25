@@ -12,13 +12,14 @@ export const Container = styled.div`
   background-size: 700px;
   padding-bottom: 40px;
 
-  .icon-login {
+  .icon-register {
     font-size: 30px;
     color: #fff;
   }
   
-  .box-icon-login {
+  .box-icon-register {
     padding: 8px 10px;
+    padding-bottom: 5px;
     background: #009053;
     border-radius: 50%;
     margin-right: 10px;
@@ -27,6 +28,7 @@ export const Container = styled.div`
 
   h2 {
     color: #171923;
+    font-family: "Inter", Sans-serif;
     font-size: 26px;
     font-weight: 600;
     line-height: 27px;
@@ -34,6 +36,7 @@ export const Container = styled.div`
 
   p {
     color: #171923;
+    font-family: "Inter", Sans-serif;
   }
 
   .card-form {
@@ -46,6 +49,7 @@ export const Container = styled.div`
 
     label {
       font-size: 18px;
+      font-family: "Inter", Sans-serif;
       margin-bottom: 5px;
       font-weight: 600;
     }
