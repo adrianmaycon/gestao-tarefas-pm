@@ -172,11 +172,17 @@ export const Box = styled.div`
       flex-direction: column;
       align-items: flex-start;
 
+      textarea,
       input {
         width: 100%;
         height: 30px;
         margin-bottom: 12px;
         padding-left: 5px;
+      }
+
+      textarea {
+        height: auto;
+        resize: vertical;
       }
 
       label {

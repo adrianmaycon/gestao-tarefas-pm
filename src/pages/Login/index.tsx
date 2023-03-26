@@ -1,12 +1,12 @@
-// import { AuthContext } from "contexts/Auth/AuthContext";
-import { ChangeEvent, useState, FormEvent  } from "react";
+import { AuthContext } from "contexts/Auth/AuthContext";
+import { ChangeEvent, useState, FormEvent, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserLock } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { Container } from './styles';
 
 export const Login = () => {
-    // const auth = useContext(AuthContext);
+    const auth = useContext(AuthContext);
     const navigate = useNavigate();
     
     const [email, setEmail] = useState('');
@@ -23,21 +23,22 @@ export const Login = () => {
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
-        toast.success("Login feito com sucesso!", { position: toast.POSITION.BOTTOM_LEFT })
+        // toast.success("Login feito com sucesso!", { position: toast.POSITION.BOTTOM_LEFT })
         // toast.error("Usuário não cadastrado!", { position: toast.POSITION.BOTTOM_LEFT })
 
-        navigate('/dashboard');
-        // setTimeout(() => document.location.reload(), 300);
-
-        // if (email && password) {
-        //     const isLogged = await auth.signin(email, password);
-
-        //     if (isLogged) {
-        //         navigate('/dashboard');
-        //     } else {
-        //         alert("Não deu certo.")
-        //     }
-        // }
+        // navigate('/dashboard');
+        
+        if (email && password) {
+            const isLogged = await auth.signin(email, password);
+            
+            if (isLogged) {
+                toast.success("Login feito com sucesso!", { position: toast.POSITION.BOTTOM_LEFT })
+                navigate('/dashboard');
+                setTimeout(() => document.location.reload(), 300);
+            } else {
+                alert("Não deu certo.")
+            }
+        }
     }
 
     return (

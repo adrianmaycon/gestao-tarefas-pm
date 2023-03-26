@@ -1,12 +1,12 @@
 import 'react-toastify/dist/ReactToastify.css';
+import 'styles/global.css';
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Dashboard } from './pages/Dashboard';
 import { Login } from 'pages/Login';
 import { Register } from 'pages/Register';
-import 'styles/global.css';
-// import { RequireAuth } from './contexts/Auth/RequireAuth';
+import { RequireAuth } from './contexts/Auth/RequireAuth';
 import { Header } from 'components/header';
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} /> */}
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
       </Routes>
       <ToastContainer
           autoClose={2500}

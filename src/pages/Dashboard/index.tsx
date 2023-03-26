@@ -17,7 +17,7 @@ export const Dashboard = () => {
             id: "01",
             title: "Escrever ofício para procuradoria",
             description: "Preciso escrever um ofício urgente para ser enviado até o fim da semana para o escritório da empresa",
-            date: "25-03-2023",
+            date: "2023-03-25",
             type: 1
         },
     ]);
@@ -60,9 +60,10 @@ export const Dashboard = () => {
                             />
 
                             <label>Descrição:</label>
-                            <input 
+                            <textarea 
                                 required
-                                type="text" 
+                                cols={40} 
+                                rows={3}
                                 value={description}
                                 placeholder="Digite a descrição" 
                                 onChange={(e) => setDescription(e.target.value)}
@@ -87,7 +88,7 @@ export const Dashboard = () => {
 
             <Container>
                 <div className="body-panel">
-                    <h2>Olá <b>{auth.user?.name || "Sr(a)"}</b>, tudo bem? Seja bem vindo{`(a)`}!</h2>
+                    <h2>Olá <b>{auth.user?.name || "Sr(a) Adrian Maycon"}</b>, tudo bem? Seja bem vindo{`(a)`}!</h2>
 
                     <ContainerTarefas>
                         <div className="row-between">

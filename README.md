@@ -3,7 +3,7 @@
 A Demo deste projeto pode ser acessada pelo link: [pmcegestaodetarefas.netlify.app](https://pmcegestaodetarefas.netlify.app/).
 O Layout deste site web foi feito com referências do site oficial da PMCE - [www.pm.ce.gov.br](https://www.pm.ce.gov.br/).
 
-## Tecnologias e Libs Usadas
+## Algumas das Tecnologias e Libs Usadas
 
 - ReactJs
 - Typescript
@@ -11,7 +11,9 @@ O Layout deste site web foi feito com referências do site oficial da PMCE - [ww
 - NodeJs
 - Postgres
 - Express
+- Axios
+- React Icons
 
 ## Mais Informações
 
-Acesse aqui [React documentation](https://reactjs.org/).
+Acesse aqui o [Video do projeto](https://reactjs.org/).
