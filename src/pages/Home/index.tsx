@@ -1,5 +1,5 @@
 import { Container } from './styles';
-import logoPmCE from '../../assets/logoPMCE.png';
+import logoPmCE from 'assets/logoPMCE.png';
 import { FaThList } from "react-icons/fa";
 
 export const Home = () => {

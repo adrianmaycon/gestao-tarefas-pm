@@ -3,7 +3,7 @@ import { AuthContext } from '../../contexts/Auth/AuthContext';
 import { useContext } from 'react';
 import { Container } from "./styles";
 import { FaRegUser, FaSignOutAlt, FaShapes } from "react-icons/fa";
-import logoPmCe from '../../assets/header/logoPmCe.svg'
+import logoPmCe from 'assets/header/logoPmCe.svg';
 
 export const Header = () => {
     const auth = useContext(AuthContext);
