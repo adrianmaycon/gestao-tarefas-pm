@@ -1,13 +1,12 @@
-import { AuthContext } from "contexts/Auth/AuthContext";
-import { ChangeEvent, useContext, useState, FormEvent  } from "react";
+import { ChangeEvent, useState, FormEvent  } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import { Container } from './styles';
 import { FaAddressCard } from "react-icons/fa";
+
 export const Register = () => {
-    const auth = useContext(AuthContext);
     const navigate = useNavigate();
-    
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,16 +21,9 @@ export const Register = () => {
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
     
-        if (email && password) {
-            const isLogged = await auth.signin(email, password);
-
-            if (isLogged) {
-                navigate('/dashboard');
-                setTimeout(() => document.location.reload(), 300);
-            } else {
-                alert("Não deu certo.")
-            }
-        }
+        toast.success("Cadastrado com sucesso!", { position: toast.POSITION.BOTTOM_LEFT });
+        
+        navigate('/login');
     }
 
     return (

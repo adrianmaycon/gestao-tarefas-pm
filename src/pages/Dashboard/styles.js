@@ -118,6 +118,53 @@ export const Box = styled.div`
     align-items: center;
     padding: 24px;
 
+    .btn-color {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      
+      :hover {
+        border: 3px solid #3e3e3e;
+      }
+    }
+
+    .select-color {
+      border: 3px solid #000000;
+    }
+
+    .color-one {
+      background: #00D15E;
+    }
+
+    .color-two {
+      background: #43b576;
+    }
+
+    .color-three {
+      background: #3FD181;
+    }
+
+    .color-four {
+      background: #5bacad;
+    }
+
+    .color-five {
+      background: #90b4ff;
+    }
+
+    .color-six {
+      background: #c0e2ff;
+    }
+
+    .row-between {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
     h2 {
       margin: 0;
       margin-bottom: 15px;
@@ -129,7 +176,7 @@ export const Box = styled.div`
       display: grid;
       grid-template-columns: 2fr 2fr;
       gap: 20px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     .btn-link-cancel,
@@ -187,6 +234,7 @@ export const Box = styled.div`
 
       label {
         margin-bottom: 5px;
+        font-size: 14px;
       }
     }
 `;

@@ -1,11 +1,15 @@
 import { AuthContext } from "contexts/Auth/AuthContext";
 import { useContext, useState, FormEvent } from "react";
 import { Container, ContainerTarefas, GridTarefas, Modal, Box } from "./styles";
-import { CardTask } from "components/cardTask";
 import { FaRegCalendarPlus } from "react-icons/fa";
+import { CardTask } from "components/cardTask";
+import classNames from "classnames";
+import { toast } from "react-toastify";
 
 export const Dashboard = () => {
     const auth = useContext(AuthContext);
+
+    const [colorSelect, setColorSelect] = useState(1);
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -14,19 +18,25 @@ export const Dashboard = () => {
     const [openBtnAdd, setOpenBtnAdd] = useState(false);
     const [listTask, setListTask] = useState([
         {
-            id: "01",
-            title: "Escrever ofício para procuradoria",
-            description: "Preciso escrever um ofício urgente para ser enviado até o fim da semana para o escritório da empresa",
-            date: "2023-03-25",
-            type: 1
+            id: "0",
+            title: "Clique para adicionar tarefa",
+            description: "----- ---------- ---- ----- --- ------- ------ --------- -------- ----------- -----",
+            date: "----------",
+            type: 6,
         },
     ]);
+
+    function clearFiels() {
+        setTitle("");
+        setDescription("");
+        setDateValidate("");
+    }
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
         if (title && description && dateValidate) {
-            const newTask = { id: String(listTask.length + 1), title: title, description: description, date: dateValidate, type: Math.floor(Math.random() * 7)}
+            const newTask = { id: String(listTask.length + 1), title: title, description: description, date: dateValidate, type: colorSelect}
             const arrAll = listTask;
 
             arrAll.push(newTask);
@@ -34,6 +44,10 @@ export const Dashboard = () => {
             setListTask(arrAll);
 
             setOpenBtnAdd(false);
+
+            toast.success("Tarefa criada com sucesso!", { position: toast.POSITION.BOTTOM_LEFT });
+
+            clearFiels();
         }
     }
 
@@ -76,10 +90,21 @@ export const Dashboard = () => {
                                 value={dateValidate}
                                 onChange={(e) => setDateValidate(e.target.value)}
                             />
+
+                            <label>Cor de fundo:</label>
+
+                            <div className="row-between">
+                                <button type="button" onClick={() => setColorSelect(1)} className={classNames(`btn-color color-one ${colorSelect === 1 && "select-color"}`)}></button>
+                                <button type="button" onClick={() => setColorSelect(2)} className={classNames(`btn-color color-two ${colorSelect === 2 && "select-color"}`)}></button>
+                                <button type="button" onClick={() => setColorSelect(3)} className={classNames(`btn-color color-three ${colorSelect === 3 && "select-color"}`)}></button>
+                                <button type="button" onClick={() => setColorSelect(4)} className={classNames(`btn-color color-four ${colorSelect === 4 && "select-color"}`)}></button>
+                                <button type="button" onClick={() => setColorSelect(5)} className={classNames(`btn-color color-five ${colorSelect === 5 && "select-color"}`)}></button>
+                                <button type="button" onClick={() => setColorSelect(6)} className={classNames(`btn-color color-six ${colorSelect === 6 && "select-color"}`)}></button>
+                            </div>
                             
                             <div className="cont-grid">
                                 <button type="submit" className="btn-link">Salvar</button>
-                                <button type="button" className="btn-link-cancel" onClick={() => setOpenBtnAdd(false)}>Cancelar</button>
+                                <button type="button" className="btn-link-cancel" onClick={() => {setOpenBtnAdd(false); clearFiels()}}>Cancelar</button>
                             </div>
                         </form>
                     </Box>
@@ -100,16 +125,10 @@ export const Dashboard = () => {
 
                     <GridTarefas>
 
-                        {listTask.length > 0 ? 
-                            listTask.map((task) => <CardTask key={task.id} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} />)
+                        {(listTask.length > 1) ? 
+                            listTask.map((task) => <CardTask key={task.id} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} />) 
                             : 
-                            <div onClick={() => setOpenBtnAdd(true)}>
-                                <CardTask 
-                                    iconsOff
-                                    type={6}
-                                    title="Clique para adicionar uma tarefa" 
-                                />
-                            </div>   
+                            listTask.map((task) => <div onClick={() => setOpenBtnAdd(true)} key={task.id}><CardTask iconsOff={Number(task.id) === 0} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} /></div>)
                         }
                     </GridTarefas>
                 </div>

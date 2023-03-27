@@ -22,11 +22,6 @@ export const Login = () => {
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
-
-        // toast.success("Login feito com sucesso!", { position: toast.POSITION.BOTTOM_LEFT })
-        // toast.error("Usuário não cadastrado!", { position: toast.POSITION.BOTTOM_LEFT })
-
-        // navigate('/dashboard');
         
         if (email && password) {
             const isLogged = await auth.signin(email, password);
@@ -36,7 +31,7 @@ export const Login = () => {
                 navigate('/dashboard');
                 setTimeout(() => document.location.reload(), 300);
             } else {
-                alert("Não deu certo.")
+                toast.error("Usuário não cadastrado!", { position: toast.POSITION.BOTTOM_LEFT })
             }
         }
     }
