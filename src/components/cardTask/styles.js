@@ -34,6 +34,12 @@ export const Container = styled.div`
   cursor: pointer;
   transition: 0.2s;
 
+  border-bottom: ${(p) => p.concluido && "8px solid #ffeb00"};
+
+  .row-between {
+    margin-bottom: ${(p) => p.concluido && "-8px"};
+  }
+
   h3 {
     font-size: 16px;
     margin-top: 0;
@@ -62,6 +68,17 @@ export const Container = styled.div`
         margin-left: -2px;
         text-shadow: 0.1em 0.1em #333
     }
+  }
+
+  .checkbox-input {
+    margin: 0;
+    margin-left: 5px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .label-checkbox {
+    font-size: 14px;
   }
 
   :hover {

@@ -9,6 +9,10 @@ export const Container = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  .label-checkbox {
+    font-size: 14px;
+  }
   
   .box-container{
     width: 100%;
@@ -61,7 +65,7 @@ export const Container = styled.header`
   }
 
   @media (max-width: 580px) {
-    height: 300px;
+    height: 230px;
     nav {
       width: 100%;      
 

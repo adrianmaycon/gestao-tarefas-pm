@@ -213,7 +213,7 @@ export const Box = styled.div`
       }
     }
 
-    form {
+    .card-form {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -235,6 +235,23 @@ export const Box = styled.div`
       label {
         margin-bottom: 5px;
         font-size: 14px;
+      }
+
+      .row {
+        margin-top: 15px;
+      }
+
+      .checkbox-input {
+        margin: 0;
+        margin-left: 5px;
+        width: 18px;
+        height: 18px;
+      }
+
+      .label-checkbox {
+        font-size: 16px;
+        margin: 0;
+        margin-left: 6px;
       }
     }
 `;

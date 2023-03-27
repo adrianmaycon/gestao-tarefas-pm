@@ -14,6 +14,7 @@ export const Dashboard = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [dateValidate, setDateValidate] = useState("");
+    const [checkedConcluded, setCheckedConcluded] = useState(false);
 
     const [openBtnAdd, setOpenBtnAdd] = useState(false);
     const [listTask, setListTask] = useState([
@@ -21,8 +22,9 @@ export const Dashboard = () => {
             id: "0",
             title: "Clique para adicionar tarefa",
             description: "----- ---------- ---- ----- --- ------- ------ --------- -------- ----------- -----",
-            date: "----------",
+            date: "____-__-__",
             type: 6,
+            concluded: true,
         },
     ]);
 
@@ -36,7 +38,7 @@ export const Dashboard = () => {
         event.preventDefault();
 
         if (title && description && dateValidate) {
-            const newTask = { id: String(listTask.length + 1), title: title, description: description, date: dateValidate, type: colorSelect}
+            const newTask = { id: String(listTask.length + 1), title: title, description: description, date: dateValidate, type: colorSelect, concluded: checkedConcluded}
             const arrAll = listTask;
 
             arrAll.push(newTask);
@@ -101,6 +103,11 @@ export const Dashboard = () => {
                                 <button type="button" onClick={() => setColorSelect(5)} className={classNames(`btn-color color-five ${colorSelect === 5 && "select-color"}`)}></button>
                                 <button type="button" onClick={() => setColorSelect(6)} className={classNames(`btn-color color-six ${colorSelect === 6 && "select-color"}`)}></button>
                             </div>
+
+                            <div className="row">
+                                <input checked={checkedConcluded} name="checkboxInput" className="checkbox-input" type="checkbox" onChange={(e) => setCheckedConcluded(e.target.checked)} />
+                                <label htmlFor="checkboxInput" className="label-checkbox">Tareda Concluída</label>
+                            </div>
                             
                             <div className="cont-grid">
                                 <button type="submit" className="btn-link">Salvar</button>
@@ -125,10 +132,10 @@ export const Dashboard = () => {
 
                     <GridTarefas>
 
-                        {(listTask.length > 1) ? 
-                            listTask.map((task) => <CardTask key={task.id} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} />) 
+                        {(listTask.length === 1) ? 
+                            listTask.map((task) => <div onClick={() => setOpenBtnAdd(true)} key={task.id}><CardTask iconsOff={true} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} concluded={task.concluded} /></div>)
                             : 
-                            listTask.map((task) => <div onClick={() => setOpenBtnAdd(true)} key={task.id}><CardTask iconsOff={Number(task.id) === 0} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} /></div>)
+                            listTask.map((task, index) => index > 0 && <CardTask key={task.id} type={task.type} title={task.title} description={task.description} date={maskData(task.date)} concluded={task.concluded} />) 
                         }
                     </GridTarefas>
                 </div>

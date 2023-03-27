@@ -25,6 +25,8 @@ export const Login = () => {
         
         toast.success("Login feito com sucesso!", { position: toast.POSITION.BOTTOM_LEFT })
         navigate('/dashboard');
+        localStorage.setItem("tokenAutentication", "123456");
+        setTimeout(() => document.location.reload(), 300);
         // if (email && password) {
         //     const isLogged = await auth.signin(email, password);
             
