@@ -9,7 +9,7 @@ export const Container = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  
   .label-checkbox {
     font-size: 14px;
   }

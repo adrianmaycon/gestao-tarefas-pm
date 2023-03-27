@@ -130,6 +130,15 @@ export const Dashboard = () => {
                         </div>
                     </ContainerTarefas>
 
+                    <div className="cont-filtros">
+                        <label htmlFor="select">Filtrar por:</label>
+                        <select name="select">
+                            <option value="">Todas</option>
+                            <option value="em-andamento">Em andamento</option>
+                            <option value="concluido">Concluido</option>
+                        </select>
+                    </div>
+
                     <GridTarefas>
 
                         {(listTask.length === 1) ? 

@@ -19,6 +19,17 @@ export const Container = styled.div`
       margin: 0;
     }
   }
+
+  .cont-filtros {
+    margin-top: 20px;
+
+    select {
+      height: 30px;
+      width: 150px;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  }
 `;
 
 export const ContainerTarefas = styled.div`
